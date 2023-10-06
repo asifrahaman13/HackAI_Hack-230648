@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "backend"
+version = "0.1.0"
+description = ""
+authors = ["Asif Rahaman <asifrahaman162@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.12"
+uagents = "^0.6.2"
+python-dotenv = "^1.0.0"
+fastapi = "^0.103.2"
+sqlmodel = "^0.0.8"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
