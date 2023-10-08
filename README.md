@@ -33,11 +33,22 @@ Next you need to create a .env file to store the environmen variables. In unix b
 touch .env
 ```
 
-Next add the environment variables.
+Next add the environment variables. 
+
+- For the Currency conversion use the following link to obtain the API key, API endpoints:
+
+  https://rapidapi.com/natkapral/api/currency-converter5
+
+- For the gmail go to the manage settings section of your gmail account. On the left side you will see the security tab. click on it. Now click on the "2-Step   Verification" under the "How you sign in to Google". Scroll down to find the "App passwords" function. Next click on it and enter the required details to get 16 digit app password. Copy it.
+  https://myaccount.google.com/security
+  
 
 ```
-RAPIDAPI_ENDPOINT=<your rapid api endpoint>
+RAPIDAPI_ENDPOINT=https://currency-converter5.p.rapidapi.com/currency/convert
 RAPIDAPI_API_KEY=<your rapid api api key>
+AVAILABLE_CURRENCIES_ENDPOINTS=https://currency-converter5.p.rapidapi.com/currency/list
+SENDER_EMAIL=<your email address>
+EMAIL_API_PASSWORD=<your gmail app password>
 ```
 
 Activate the environment variable. 
@@ -74,7 +85,10 @@ You can run the code from the terminal itself using the following commands:
 poetry run python3 src/main.py
 ```
 
-The uagents library will run on port 8000.
+## Please note the port numbers:
+- The uagents library will run on port 8000.
+- The front end will run on port 3000.
+- The fast api backend will run on port 8000
 <br/>
 <br/>
 <br/>
