@@ -57,7 +57,7 @@ Next you need to set up the environment for the front end.
 ```
 cd frontend/
 yarn install 
-yarn run dev
+yarn start
 ```
 
 ## How to run the backend code
