@@ -6,8 +6,11 @@ import os
 import requests
 from dotenv import load_dotenv
 from os.path import join, dirname
+from fastapi.middleware.cors import CORSMiddleware
+from src.models import UserName
+import time
 
-# Load the data of the .env file. 
+# Load the data of the .env file.
 dotenv_path = join(dirname(__file__), "../.env")
 load_dotenv(dotenv_path)
 
@@ -22,10 +25,55 @@ RAPIDAPI_API_KEY = os.getenv("RAPIDAPI_API_KEY")
 # Define the database url that can be used.
 
 # Create the API instance.
+# These core origins are enabled by default.
+origins = [
+    "http://localhost",
+    "http://127.0.0.1",
+    "http://127.0.0.1:8000",
+    "http://localhost:8000",
+    "http://localhost:3000",
+    "http://localhost:3000/",
+]
+
+# Initialize the fast api object.
 app = FastAPI()
 
+# Add middle wares to the origins
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
-@app.post("/user")
+
+def get_available_currencies():
+    available_currencies_url = AVAILABLE_CURRENCIES_ENDPOINTS
+    headers = {
+        "X-RapidAPI-Key": RAPIDAPI_API_KEY,
+        "X-RapidAPI-Host": "currency-converter5.p.rapidapi.com",
+    }
+    response = {}
+    try:
+        response = requests.get(available_currencies_url, headers=headers)
+
+    except Exception as e:
+        print("The following exception occurred: {}".format(e))
+
+    currencies = {}
+
+    if response.status_code == 200:
+        response = response.json()
+
+        print(response["currencies"])
+
+        currencies = response["currencies"]
+
+    return currencies
+
+
+@app.post("/user/")
 def read_user(user: User):
     # Serialize the User Pydantic model to a dictionary
     user_data = user.dict()
@@ -56,8 +104,9 @@ def read_user(user: User):
     return {"message": "Data saved successfully"}
 
 
-@app.delete("/user/{user_name}")
-def delete_user(user_name: str):
+@app.delete("/user/")
+def delete_user(user_name: UserName):
+    user_name = user_name.user_name
     # Load the existing data from the JSON file
     try:
         with open("src/user_data/user_data.json", "r") as json_file:
@@ -86,19 +135,9 @@ def delete_user(user_name: str):
     return {"message": f"User with user_name '{user_name}' deleted successfully"}
 
 
-@app.post("/currencies")
+@app.get("/currencies")
 async def available_currencies():
-    available_currencies_url = AVAILABLE_CURRENCIES_ENDPOINTS
-    headers = {
-        "X-RapidAPI-Key": RAPIDAPI_API_KEY,
-        "X-RapidAPI-Host": "currency-converter5.p.rapidapi.com",
-    }
-    response = requests.get(available_currencies_url, headers=headers)
-    response = response.json()
-
-    # print(response['currencies'])
-
-    currencies = response["currencies"]
+    currencies = get_available_currencies()
     return {"currencies": currencies}
 
 

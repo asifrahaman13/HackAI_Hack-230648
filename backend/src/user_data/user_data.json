@@ -1,55 +1,18 @@
 [
   {
-    "user_name": "asif",
-    "user_email": "dinesh123tv@gmail.com",
-    "base_currency": "USD",
-    "currencies": [
-      {
-        "code": "GBP",
-        "min": 0.72,
-        "max": 0.75
-      },
-      {
-        "code": "JPY",
-        "min": 110.5,
-        "max": 112.0
-      },
-      {
-        "code": "INR",
-        "min": 82.55,
-        "max": 84.3
-      },
-      {
-        "code": "EUR",
-        "min": 0.85,
-        "max": 0.9
-      }
-    ]
-  },
-  {
     "user_name": "asifr",
     "user_email": "asifr@iitbhilai.ac.in",
-    "base_currency": "USD",
+    "base_currency": "XAU",
     "currencies": [
       {
-        "code": "GBP",
-        "min": 0.72,
-        "max": 0.75
+        "code": "STN",
+        "min": 74.2,
+        "max": 85.1
       },
       {
-        "code": "JPY",
-        "min": 110.5,
-        "max": 112.0
-      },
-      {
-        "code": "INR",
-        "min": 82.55,
-        "max": 84.3
-      },
-      {
-        "code": "EUR",
-        "min": 0.85,
-        "max": 0.9
+        "code": "RWF",
+        "min": 5.2,
+        "max": 65.08
       }
     ]
   }

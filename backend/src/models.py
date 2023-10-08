@@ -15,3 +15,6 @@ class User(BaseModel):
     user_email: str
     base_currency: str
     currencies: List[Currency] | None =None
+
+class UserName(BaseModel):
+    user_name: str = Field(primary_key=True, index=True)
