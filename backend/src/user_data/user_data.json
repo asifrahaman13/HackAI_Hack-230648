@@ -1,18 +1,13 @@
 [
   {
-    "user_name": "asifr",
-    "user_email": "asifr@iitbhilai.ac.in",
-    "base_currency": "XAU",
+    "user_name": "aditya ",
+    "user_email": "vaibhavarora@iitbhilai.ac.in",
+    "base_currency": "USD",
     "currencies": [
       {
-        "code": "STN",
-        "min": 74.2,
-        "max": 85.1
-      },
-      {
-        "code": "RWF",
-        "min": 5.2,
-        "max": 65.08
+        "code": "INR",
+        "min": 82.1,
+        "max": 82.2
       }
     ]
   }

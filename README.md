@@ -33,6 +33,8 @@ Next you need to create a .env file to store the environmen variables. In unix b
 touch .env
 ```
 
+You can also manually create the file. 
+
 Next add the environment variables. 
 
 - For the Currency conversion use the following link to obtain the API key, API endpoints:
@@ -88,7 +90,7 @@ poetry run python3 src/main.py
 ## Please note the port numbers:
 - The uagents library will run on port 8000.
 - The front end will run on port 3000.
-- The fast api backend will run on port 8000
+- The fast api backend will run on port 5000
 <br/>
 <br/>
 <br/>

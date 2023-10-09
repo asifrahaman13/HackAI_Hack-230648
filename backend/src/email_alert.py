@@ -14,9 +14,10 @@ send_password = os.environ["EMAIL_API_PASSWORD"]
 
 def send_email(
     receiver_email, message, sender_email=send_email, sender_password=send_password
-):
-    body = message
-
+):  
+    body= "Hi! you have the following alert message:"
+    body += "<br><br>"
+    body += message
     body += "<br><br>"
     body += "<p>Thanks,</p>"
     body += "<p>Team Astra</p>"
