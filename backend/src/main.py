@@ -116,6 +116,10 @@ async def check_exchange_rates(ctx: Context):
 
         # print(item["currencies"])
 
+        # Extract the user name
+
+        user_name=item['user_name']
+
         # Extract out the base currency
         base_currency = item["base_currency"]
 
@@ -172,7 +176,7 @@ async def check_exchange_rates(ctx: Context):
                     # Check if the current rate is out of bound.
                     if rate < threshold["min"] or rate > threshold["max"]:
                         # Customize your alert message.
-                        alert_message = f"Alert: {currency} rate is {rate}"
+                        alert_message = f"Alert for username: {user_name}, Alert message: {currency} rate is {rate}"
 
                         # Concatenate to have the string highlighted in green color.
                         colored_alert_message = GREEN + alert_message + RESET
