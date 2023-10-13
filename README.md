@@ -95,6 +95,16 @@ poetry run python3 src/main.py
 <br/>
 <br/>
 
+To test the code one extra line was added. Please comment out the following lines of codes(main.py file, line number 57-61):
+
+```
+# The following piece of code is to test the working. It will be removed in production.
+            if currency == "INR":
+                random_num = random.randint(0, 3)
+                # print(random_num)
+                converted_rate += random_num
+```
+
 ## MIT License 💡
 
 ### Copyright (c) 2023 Asif Rahaman
